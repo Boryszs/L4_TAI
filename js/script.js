@@ -77,12 +77,15 @@ function setQuestion(index) {
     }
 }
 
-//localStorage.setItem("value", JSON.stringify({count:0,average:0}));
 
 next.addEventListener('click', function () {
     index++;
     if (preQuestions.length  <= index) {
          let obj = JSON.parse(localStorage.getItem("value"));
+         if(obj === null){
+             localStorage.setItem("value", JSON.stringify({count:0,average:0}));
+             obj = JSON.parse(localStorage.getItem("value"));
+         }
          obj.count = obj.count+1;
          obj.average = Math.round((obj.average + points));
          localStorage.setItem("value", JSON.stringify(obj));
@@ -90,7 +93,7 @@ next.addEventListener('click', function () {
          list.style.display = 'none';
          results.style.display = 'block';
          userScorePoint.innerHTML = points;
-         average.innerText = (Math.round((obj.average / (obj.count * preQuestions.length))*100)/100).toFixed(2);
+         average.innerText = (Math.round((obj.average / (obj.count * preQuestions.length))*100)).toFixed(2);
     }else{
         setQuestion(index);
         activateAnswers();
