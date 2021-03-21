@@ -1,3 +1,7 @@
+html{
+    width: 100%;
+    height: 100%;
+}
 body {
     width: 100%;
     font-size: 14px;
@@ -12,13 +16,34 @@ body {
 }
 
 .correct {
-    background-color: #289a27;
+    background-color: #289a27; !important;
 }
 
 .incorrect {
-    background-color: #c41a21;
+    background-color: #c41a21; !important;
 }
 
 .buttons {
     padding: 10px 10px 10px 0;
 }
+
+.box-question{
+    background-color: gray;
+}
+
+.box-current{
+    background-color: orange;
+}
+
+.boxe{
+    display: table-cell;
+    height: 20px;
+    min-width: 5%;
+}
+
+.boxes{
+    display: table;
+    width: 100%; /*Optional*/
+    border-spacing: 2px;
+}
+

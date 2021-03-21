@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,28 +14,28 @@
 
 </div>
 
+<progress value="0" max="20" id="pbar"
+          style="width: 100%; height: 20px; background-color: dodgerblue; box-shadow: #289a27"></progress>
 
+<div class="qt-bar">
+</div>
 <div class="container list">
     Question:<span id="nr-question"></span> <h4 class="question"></h4>
 
     Answers:
     <ul class="list-group">
-        <li class="list-group-item"></li>
-        <li class="list-group-item"></li>
-        <li class="list-group-item"></li>
-        <li class="list-group-item"></li>
+        <li id="0" class="list-group-item"></li>
+        <li id="1" class="list-group-item"></li>
+        <li id="2" class="list-group-item"></li>
+        <li id="3" class="list-group-item"></li>
     </ul>
-
-    <div class="buttons">
-        <button class="btn btn-danger previous">Previous</button>
-        <button class="btn btn-success next">Next</button>
-    </div>
 
     <h4>Your score: <span class="score">0</span>/20 points.</h4>
 </div>
 <div class="container results" style="display: none">
-    <div class="btn-group-custom">
-        <button class="btn btn-success btn-custom restart">Retake quiz</button>
+    <div class="text-center">
+        <button class="btn btn-success btn-lg restart">Retake quiz</button>
+        <button type="button" class="btn btn-danger btn-lg shows">Show report</button>
     </div>
     <div class="score">
         <table class="table table-striped">
@@ -42,7 +43,7 @@
             <tr>
                 <th>#</th>
                 <th>Point/20</th>
-                <th>Average</th>
+                <th>Percent%</th>
             </tr>
             </thead>
             <tbody>
@@ -51,11 +52,20 @@
                 <td class="userScorePoint"></td>
                 <td class="average"></td>
             </tr>
+            <tr>
+                <th scope="row">Average score</th>
+                <td class="averagePoint"></td>
+                <td class="averagePercent"></td>
+            </tr>
             </tbody>
         </table>
+
     </div>
 </div>
-
+<div class="container results">
+    <span class="scors" style="display: none">
+    </span>
+</div>
 
 <script src="js/script.js"></script>
 </body>
